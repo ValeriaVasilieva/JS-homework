@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+  <script>
+
+    function getEnding(num) {
+      let ending = null;
+      if (num.length > 1) {
+        ending = num.slice(num.length - 2)
+        if (ending === '11' || ending === '12' || ending === '13' || ending === '14') {
+          return ending
+        } else {
+          ending = ending.charAt(1)
+          return ending
+        }
+      } else ending = num
+    }
+
+    function getCurrenWord(num) {
+      let ending = getEnding(num)
+      switch (ending) {
+        case '1':
+          return 'рубль'
+        case '2':
+        case '3':
+        case '4':
+          return 'рубля'
+        case '0':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+        case '11':
+        case '12':
+        case '13':
+        case '14':
+          return 'рублей'
+      }
+    }
+
+    let num = prompt('Сколько положим в банк?')
+
+    alert(`Вы положили в банк ${num} ${getCurrenWord(num)}`)
+
+  </script>
+
+</body>
+
+</html>
