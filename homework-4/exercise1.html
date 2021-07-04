@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      function SplitInt(units, tens, hundreds) {
+        this.units = units;
+        this.tens = tens;
+        this.hundreds = hundreds;
+      }
+
+      function createSplitInt(int) {
+        if (!isNaN || int < 0 || int > 1000 || !Number.isInteger(int)) {
+          console.log("Число не входит в заданный лимит или не число вовсе!");
+          return {};
+        }
+
+        let arr = [];
+
+        for (let i = 100; i >= 1; i = i / 10) {
+          if (int / i > 1) {
+            let num = parseInt(int / i).toString();
+            let numEnd = num.charAt(num.length - 1);
+            arr.push(+numEnd);
+          }
+        }
+
+        return new SplitInt(arr[0] || 0, arr[1] || 0, arr[2] || 0);
+      }
+
+      let userInt = +prompt("Введите число от 0 до 999", 0);
+      console.log(createSplitInt(userInt));
+    </script>
+  </body>
+</html>
